@@ -1,18 +1,28 @@
+<!--
+ * @Author: luoyong/471826078@qq.com
+ * @Date: 2020-09-29 11:35:49
+ * @LastEditors: 471826078@qq.com
+-->
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="header1">测试一下响应式布局-@media</div>
+    <div class="main2">21313</div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  name: "Home",
+  mounted() {
+    let wid = document.body.clientWidth;
+    console.log(wid);
+  },
+};
 </script>
+<style lang="scss" scoped>
+.home {
+ 
+}
+</style>

@@ -1,0 +1,65 @@
+{
+  "id": "1570814",
+  "name": "45",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3542172",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "1237007",
+      "name": "更多",
+      "font_class": "gengduo2",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1533359",
+      "name": "网红",
+      "font_class": "wanghong",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "2066402",
+      "name": "推荐",
+      "font_class": "tuijian",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "2819417",
+      "name": "蛋糕",
+      "font_class": "dangao",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "5172407",
+      "name": "水果蛋糕",
+      "font_class": "shuiguodangao",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "8580487",
+      "name": "限时优惠",
+      "font_class": "huaban",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "9506990",
+      "name": "优惠券",
+      "font_class": "youhuiquan",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    }
+  ]
+}
