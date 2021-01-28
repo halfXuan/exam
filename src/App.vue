@@ -5,12 +5,61 @@
 -->
 <template>
   <div id="app">
-    <div class="header">测试一下响应式布局-@media</div>
+    <div class="header">国家级专业健身教练考试
+        <span @click='show=true'>登录</span>
+        </div>
     <router-view class="main" />
-    <div class="footer">测试一下响应式布局-@media</div>
+    <div class="footer">
+        <!-- 主办单位：湖北省社会体育管理中心  -->
+        </div>
+    <el-dialog title="管理员登录" :visible.sync="show" width="300px" center :modal-append-to-body='false'>
+      <span></span>
+      <el-form :model="formInline" class="demo-form-inline">
+        <el-form-item label="账号">
+          <el-input v-model="formInline.name" placeholder="账号"></el-input>
+        </el-form-item>
+        <el-form-item label="密码">
+          <el-input v-model="formInline.password" placeholder="密码"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="show = false">取 消</el-button>
+        <el-button type="primary" @click="submit"
+          >确 定</el-button
+        >
+      </span>
+    </el-dialog>
   </div>
 </template>
-
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      show: false,
+      formInline: {
+        name: "admin",
+        password: "",
+      },
+    };
+  },
+  methods: {
+      submit(){
+          axios.post('api/exam/checkLogin',{name: this.formInline.name,password: this.formInline.password}).then(res=>{
+              this.show = false
+              if(res.data.isSuccess){
+                  this.$router.push({name:'Result'})
+              }else{
+                  this.$message({
+                      type:'warning',
+                      message:'密码错误'
+                  })
+              }
+          })
+      }
+  },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -81,28 +130,39 @@
 .header {
   width: 100%;
   box-shadow: 0 3px 3px #ddd;
+    position: relative;
+  span {
+    height: 24px;
+    line-height: 24px;
+    position: absolute;
+    font-size: 14px;
+    right: 10px;
+    top: 3px;
+    cursor: pointer;
+  }
 }
 .main {
   background-color: #fff;
   border: 1px solid #ddd;
   overflow-y: auto;
 }
-.footer{
-    height: 40px;
-    line-height: 40px;
-    font-size: 14px;
-    color: #666;
+.footer {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #666;
+
 }
 @media screen and (max-width: 768px) {
   .header {
-    height: 44px;
-    line-height: 44px;
-    font-size: 14px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 18px;
     font-weight: bold;
   }
   .main {
     width: 100%;
-    height: calc(100% - 84px);
+    height: calc(100% - 114px);
     border-left: none;
     border-right: none;
   }
@@ -116,7 +176,7 @@
     box-shadow: 3px 3px 3px #ddd;
   }
   .main {
-    width: 1200px;
+    width: 1000px;
     margin: 0 auto;
     height: calc(100% - 110px);
     box-shadow: 3px 3px 3px #ddd;
@@ -130,9 +190,20 @@
     font-weight: bold;
   }
   .main {
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
     height: calc(100% - 100px);
   }
+}
+.toastExam {
+  position: fixed;
+  width: 260px;
+  padding: 15px;
+  line-height: 36px;
+  top: 50%;
+  left: 50%;
+  background-color: #edf2fc;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
 }
 </style>
